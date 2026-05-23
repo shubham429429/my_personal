@@ -3,94 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shubham Jagadale - Cloud Architect & MLOps Expert | DevOps | Kubernetes | Azure | AWS">
-    <meta name="keywords" content="Cloud Architect, MLOps, DevOps, Docker, Kubernetes, Linux, Azure, AWS, Infrastructure">
+    <meta name="description" content="Shubham Jagadale — Senior Consultant & MSSQL DBA at Capgemini with 7+ years of experience in DevOps, Cloud, Database Administration, Kubernetes, Azure, and AWS.">
+    <meta name="keywords" content="MSSQL DBA, Database Administrator, DevOps, Docker, Kubernetes, Linux, Azure, AWS, Terraform, Cloud Engineer, Technical Support, SRE">
     <meta name="author" content="Shubham Jagadale">
-    <title>Shubham Jagadale - Cloud Architect & DevOps Leader</title>
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shubham Jagadale — Cloud Architect & DevOps Leader">
+    <meta property="og:description" content="Building resilient cloud architectures at scale. 8+ years of DevOps, MLOps & Infrastructure expertise.">
+    <meta property="og:url" content="https://shubhamjagadale.dev">
+    <meta property="og:image" content="https://shubhamjagadale.dev/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shubham Jagadale — Cloud Architect & DevOps Leader">
+    <meta name="twitter:description" content="Building resilient cloud architectures at scale. 8+ years of DevOps, MLOps & Infrastructure expertise.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='68' font-size='50' font-weight='bold' fill='white' text-anchor='middle' font-family='system-ui'%3ESJ%3C/text%3E%3C/svg%3E">
+
+    <title>Shubham Jagadale — Cloud Architect & DevOps Leader</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Terminal Background Animation -->
-    <div class="terminal-bg"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
-                <a href="#" class="logo terminal-bracket">&lt;/&gt;</a>
-                <ul class="nav-links">
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#career">Career</a></li>
+                <a href="#" class="logo">
+                    <span class="logo-icon">&lt;/&gt;</span>
+                    <span class="logo-text">SJ</span>
+                </a>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="Shubham-Jagadale_Support.pdf" class="btn-resume" download>
+                            <span>📄</span> Resume
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Terminal Style -->
-    <section class="hero" id="profile">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-wrapper">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <span class="terminal-buttons">
-                            <span class="btn-circle red"></span>
-                            <span class="btn-circle yellow"></span>
-                            <span class="btn-circle green"></span>
-                        </span>
-                        <span class="terminal-title">~/portfolio.sh</span>
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        Available for opportunities
                     </div>
-                    <div class="terminal-body">
-                        <div class="hero-content">
-                            <h1 class="terminal-text">Shubham Jagadale</h1>
-                            <p class="subtitle terminal-text">Cloud Architect | MLOps & DevOps Leader | Infrastructure Expert</p>
-                            <p class="tagline terminal-text">$ building resilient cloud architectures at scale</p>
-                            
-                            <!-- Running Script Animation -->
-                            <div class="terminal-script">
-                                <div class="script-line">
-                                    <span class="prompt">$</span>
-                                    <span class="command">terraform apply infrastructure/prod.tf</span>
-                                </div>
-                                <div class="script-line">
-                                    <span class="output">→ Configuring: AWS EC2 instances...</span>
-                                </div>
-                                <div class="script-line">
-                                    <span class="output">→ Deploying: Kubernetes cluster...</span>
-                                </div>
-                                <div class="script-line">
-                                    <span class="output">→ Setting up: MLOps pipelines...</span>
-                                </div>
-                                <div class="script-line">
-                                    <span class="output">→ Scaling: Container orchestration...</span>
-                                </div>
-                                <div class="script-line building">
-                                    <span class="prompt">$</span>
-                                    <span class="blinking">Building deployment... </span>
-                                    <span class="loader"></span>
-                                </div>
-                            </div>
-
-                            <div class="hero-cta">
-                                <a href="#contact" class="btn btn-primary terminal-btn">Contact Me</a>
-                                <a href="#career" class="btn btn-secondary terminal-btn">Learn More</a>
-                            </div>
-                            <div class="hero-meta terminal-meta">
-                                <span class="terminal-icon">📍</span> Pune, India
-                                <span class="terminal-icon">📧</span> <a href="mailto:jagadales41@gmail.com">jagadales41@gmail.com</a>
-                                <span class="terminal-icon">📱</span> <a href="tel:8007713067">+91 8007713067</a>
-                            </div>
+                    <h1 class="hero-name">Shubham Jagadale</h1>
+                    <p class="hero-title">Senior Consultant — MSSQL DBA | DevOps & Cloud Engineer</p>
+                    <p class="hero-tagline">Technology Support Specialist with 7+ years of expertise in Linux, Databases, Cloud, and DevOps. Passionate about systems analysis, troubleshooting, and building resilient infrastructure at scale.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-outline">View My Work</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="7" data-suffix="+">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50" data-suffix="+">0</div>
+                            <div class="stat-label">Applications Managed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="99" data-suffix="%">0</div>
+                            <div class="stat-label">Uptime Achieved</div>
                         </div>
                     </div>
                 </div>
+                <div class="hero-photo">
+                    <div class="hero-photo-frame">
+                        <img src="1779462867542.jpg" alt="Shubham Jagadale — Cloud Architect" loading="eager" onerror="this.onerror=null; this.src='IMG_20230815_202031.jpg';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Profile Photo -->
-                <div class="profile-photo-container">
-                    <div class="profile-photo-frame">
-                        <img src="photo.jpg" alt="Shubham Jagadale" class="profile-photo">
-                        <div class="photo-border"></div>
+    <!-- About Section -->
+    <section class="about section-alt" id="about">
+        <div class="container">
+            <span class="section-label animate-on-scroll">About Me</span>
+            <h2 class="section-title animate-on-scroll">Turning Infrastructure Into Innovation</h2>
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll">
+                    <p>Customer-service focused Technology Support Specialist with over 7 years of experience in Linux, Databases, and Cloud technologies. I excel in systems analysis and troubleshooting, and I am adept at working with cross-functional teams to enhance product performance and customer satisfaction.</p>
+                    <p>At Capgemini, Walmart Global Tech, and across leading organizations, I've driven DevOps transformation — managing MSSQL databases, implementing CI/CD pipelines, orchestrating containerized workloads with Kubernetes, and automating cloud infrastructure on AWS & Azure. My strong organizational and problem-solving skills coupled with technical expertise enable me to resolve issues effectively while maintaining minimal downtime.</p>
+                </div>
+                <div class="about-highlights animate-on-scroll">
+                    <div class="highlight-card">
+                        <div class="icon">🗃️</div>
+                        <h4>MSSQL DBA</h4>
+                        <p>Patching, Backup & Recovery, AG, DB Refresh</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="icon">☁️</div>
+                        <h4>Cloud & DevOps</h4>
+                        <p>AWS, Azure, Docker, Kubernetes, Terraform</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="icon">🐧</div>
+                        <h4>Linux & Scripting</h4>
+                        <p>Bash, PowerShell, Python automation</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="icon">📊</div>
+                        <h4>Monitoring & SRE</h4>
+                        <p>Splunk, Grafana, Prometheus, Kafka</p>
                     </div>
                 </div>
             </div>
@@ -100,8 +144,9 @@
     <!-- Career Journey Section -->
     <section class="career" id="career">
         <div class="container">
-            <h2>Career Journey</h2>
-            <div class="career-timeline">
+            <span class="section-label animate-on-scroll">Career Path</span>
+            <h2 class="section-title animate-on-scroll">Career Journey</h2>
+            <div class="career-timeline animate-on-scroll">
                 <div class="career-milestone">
                     <div class="milestone-year">2018</div>
                     <div class="milestone-content">
@@ -109,15 +154,13 @@
                         <p>Started my official IT career, laying the groundwork for infrastructure and automation expertise. Building foundational knowledge in system support and network management.</p>
                     </div>
                 </div>
-
                 <div class="career-milestone">
-                    <div class="milestone-year">2021-2025</div>
+                    <div class="milestone-year">2021 – 2025</div>
                     <div class="milestone-content">
                         <h3>Building the Foundation at Walmart</h3>
                         <p>Served as Technology Service Engineer III at Walmart Global Tech. Deep-dived into critical systems, databases, and enterprise-scale troubleshooting. Led platform teams, maintained 99% uptime SLA, and drove incident reduction by 25%.</p>
                     </div>
                 </div>
-
                 <div class="career-milestone">
                     <div class="milestone-year">Mid-2025</div>
                     <div class="milestone-content">
@@ -125,7 +168,6 @@
                         <p>Successfully orchestrated relocation from Chennai to Pune while advancing to Senior Consultant role. Expanded expertise into cloud architecture and enterprise-scale infrastructure.</p>
                     </div>
                 </div>
-
                 <div class="career-milestone active">
                     <div class="milestone-year">Present</div>
                     <div class="milestone-content">
@@ -135,7 +177,7 @@
                 </div>
             </div>
 
-            <div class="career-focus">
+            <div class="career-focus animate-on-scroll">
                 <div class="focus-card">
                     <h3>🎯 Current Focus</h3>
                     <ul>
@@ -165,56 +207,29 @@
         </div>
     </section>
 
-    <!-- About Section (Expertise) -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2>Technical Expertise</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I navigate the dynamic tech landscape where infrastructure meets innovation. With 8+ years of hands-on experience, I've mastered the art of diagnosing complex system issues and architecting resilient cloud platforms at scale.</p>
-                    <p>At Walmart Global Tech and across leading organizations, I've driven DevOps transformation—implementing CI/CD pipelines, orchestrating containerized workloads with Kubernetes, and automating cloud infrastructure on AWS & Azure. My approach is data-driven, focusing on measurable outcomes: 99% uptime, 25% incident reduction, and systems that scale effortlessly while maintaining reliability.</p>
-                </div>
-                <div class="skills-grid">
-                    <h3>Core Expertise</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Cloud Architecture (AWS/Azure)</span>
-                        <span class="skill-tag">Kubernetes Orchestration</span>
-                        <span class="skill-tag">Terraform & IaC</span>
-                        <span class="skill-tag">CI/CD Pipelines</span>
-                        <span class="skill-tag">MLOps & AI Infrastructure</span>
-                        <span class="skill-tag">Linux System Administration</span>
-                        <span class="skill-tag">Docker & Containerization</span>
-                        <span class="skill-tag">Database Management (MSSQL, PostgreSQL)</span>
-                        <span class="skill-tag">Apache Kafka & Streaming</span>
-                        <span class="skill-tag">Incident Management & SRE</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Experience Section -->
-    <section class="experience" id="experience">
+    <section class="experience section-alt" id="experience">
         <div class="container">
-            <h2>Experience</h2>
+            <span class="section-label animate-on-scroll">Work History</span>
+            <h2 class="section-title animate-on-scroll">Professional Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Senior Consultant</h3>
                         <p class="company">Capgemini</p>
-                        <p class="date">June 2025 - Present</p>
-                        <p class="location">Pune</p>
+                        <p class="date">June 2025 – Present</p>
+                        <p class="location">📍 Pune, India</p>
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Technology Service Engineer III</h3>
                         <p class="company">Walmart Global Tech India</p>
-                        <p class="date">January 2023 - July 2025 <span class="duration">(2 years 7 months)</span></p>
-                        <p class="location">India</p>
+                        <p class="date">January 2023 – July 2025 <span class="duration">(2 years 7 months)</span></p>
+                        <p class="location">📍 India</p>
                         <ul class="achievements">
                             <li>Led Level 3 technical support for platform serving multiple applications across organization</li>
                             <li>Designed and deployed CI/CD pipelines using Docker & Kubernetes, reducing deployment time by 60%</li>
@@ -227,15 +242,15 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Implementation Engineer II</h3>
                         <p class="company">Ameyo</p>
-                        <p class="date">April 2022 - January 2023 <span class="duration">(10 months)</span></p>
-                        <p class="location">Mumbai, Maharashtra, India</p>
+                        <p class="date">April 2022 – January 2023 <span class="duration">(10 months)</span></p>
+                        <p class="location">📍 Mumbai, Maharashtra, India</p>
                         <ul class="achievements">
-                            <li>Infrastructure setup and readiness—server configuration on-premises, cloud, and virtual machines</li>
+                            <li>Infrastructure setup and readiness — server configuration on-premises, cloud, and virtual machines</li>
                             <li>Configured High Availability (HA), Cold Failover, and Disaster Recovery (DR) systems</li>
                             <li>Managed database operations: backup, restore, migration on master-slave architecture</li>
                             <li>Deployed SSL certificates and managed security compliance</li>
@@ -245,13 +260,13 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Customer Support Executive</h3>
                         <p class="company">Appnomic</p>
-                        <p class="date">March 2021 - April 2022 <span class="duration">(1 year 2 months)</span></p>
-                        <p class="location">Bangalore Urban, Karnataka, India</p>
+                        <p class="date">March 2021 – April 2022 <span class="duration">(1 year 2 months)</span></p>
+                        <p class="location">📍 Bangalore Urban, Karnataka, India</p>
                         <ul class="achievements">
                             <li>Supported APM tool deployment across 10+ Asia-specific enterprise projects</li>
                             <li>Orchestrated Kubernetes, Docker, Nomad, Consul infrastructure deployments</li>
@@ -262,13 +277,13 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Technical Support Specialist</h3>
                         <p class="company">Wipro Limited</p>
-                        <p class="date">May 2018 - October 2019 <span class="duration">(1 year 6 months)</span></p>
-                        <p class="location">Pune Area, India</p>
+                        <p class="date">May 2018 – October 2019 <span class="duration">(1 year 6 months)</span></p>
+                        <p class="location">📍 Pune Area, India</p>
                         <ul class="achievements">
                             <li>OS installation and troubleshooting (Ubuntu, Windows)</li>
                             <li>Server network setup and firewall/router configuration</li>
@@ -280,13 +295,154 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
         <div class="container">
-            <h2>Featured Projects</h2>
-            <p class="section-subtitle">High-impact infrastructure and automation initiatives</p>
+            <span class="section-label animate-on-scroll">Capabilities</span>
+            <h2 class="section-title animate-on-scroll">Technical Skills</h2>
+            <p class="section-subtitle animate-on-scroll">Proficiency across cloud, DevOps, and infrastructure domains</p>
+
+            <div class="skills-grid animate-on-scroll">
+                <div class="skill-category">
+                    <h3>☁️ Cloud & Infrastructure</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">AWS (EC2, S3, Lambda, EKS)</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Microsoft Azure</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Terraform & IaC</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Linux Administration</span>
+                            <span class="skill-percent">92%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>⚙️ DevOps & CI/CD</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Docker & Containerization</span>
+                            <span class="skill-percent">93%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="93"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Kubernetes Orchestration</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Jenkins / GitLab CI</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Ansible Automation</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🗃️ Databases & Streaming</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">MSSQL / PostgreSQL</span>
+                            <span class="skill-percent">87%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="87"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Apache Kafka</span>
+                            <span class="skill-percent">82%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Cassandra / Percona</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Elasticsearch</span>
+                            <span class="skill-percent">78%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Monitoring & Observability</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Prometheus & Grafana</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Splunk</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Incident Management / SRE</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Zabbix / Nagios</span>
+                            <span class="skill-percent">72%</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="72"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section-alt" id="projects">
+        <div class="container">
+            <span class="section-label animate-on-scroll">Portfolio</span>
+            <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+            <p class="section-subtitle animate-on-scroll">High-impact infrastructure and automation initiatives</p>
+
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card animate-on-scroll">
                     <div class="project-header">
                         <h3>99% Uptime Platform Architecture</h3>
                         <span class="project-tag">Kubernetes</span>
@@ -295,7 +451,7 @@
                     <div class="project-tech">Docker • Kubernetes • Prometheus • Grafana</div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-on-scroll">
                     <div class="project-header">
                         <h3>CI/CD Pipeline Automation</h3>
                         <span class="project-tag">DevOps</span>
@@ -304,7 +460,7 @@
                     <div class="project-tech">Jenkins • Docker • GitLab • Terraform</div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-on-scroll">
                     <div class="project-header">
                         <h3>Real-time Data Streaming Platform</h3>
                         <span class="project-tag">Kafka</span>
@@ -313,7 +469,7 @@
                     <div class="project-tech">Apache Kafka • Azure • Splunk • Zabbix</div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-on-scroll">
                     <div class="project-header">
                         <h3>Infrastructure as Code Migration</h3>
                         <span class="project-tag">Cloud</span>
@@ -322,7 +478,7 @@
                     <div class="project-tech">Terraform • Azure • Ansible • Python</div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-on-scroll">
                     <div class="project-header">
                         <h3>Incident Management System</h3>
                         <span class="project-tag">Automation</span>
@@ -331,10 +487,10 @@
                     <div class="project-tech">ServiceNow • Jira • Slack • Python</div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card animate-on-scroll">
                     <div class="project-header">
                         <h3>Enterprise Security Hardening</h3>
-                        <span class="project-tag">Linux</span>
+                        <span class="project-tag">Security</span>
                     </div>
                     <p>Implemented comprehensive Linux security framework including VPN, firewall rules, SSL certificates, and vulnerability assessments across 500+ servers.</p>
                     <div class="project-tech">Linux • VPN • SSL/TLS • Firewall</div>
@@ -343,23 +499,149 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="certifications">
+    <!-- Education Section -->
+    <section class="education" id="education">
         <div class="container">
-            <h2>Certifications</h2>
-            <div class="cert-grid">
+            <span class="section-label animate-on-scroll">Education</span>
+            <h2 class="section-title animate-on-scroll">Academic Background</h2>
+
+            <div class="education-grid animate-on-scroll">
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <h3>Your Degree Title</h3>
+                    <p class="institution">University / Institution Name</p>
+                    <p class="edu-year">Year – Year</p>
+                    <p class="edu-description">Brief description of your studies, specializations, or notable achievements during your academic career.</p>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">📚</div>
+                    <h3>Your Diploma / Certification</h3>
+                    <p class="institution">Institution Name</p>
+                    <p class="edu-year">Year – Year</p>
+                    <p class="edu-description">Description of your diploma or additional educational qualification.</p>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">🏫</div>
+                    <h3>Higher Secondary</h3>
+                    <p class="institution">School / College Name</p>
+                    <p class="edu-year">Year – Year</p>
+                    <p class="edu-description">Relevant coursework or achievements during your secondary education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications section-alt" id="certifications">
+        <div class="container">
+            <span class="section-label animate-on-scroll">Credentials</span>
+            <h2 class="section-title animate-on-scroll">Certifications</h2>
+            <div class="cert-grid animate-on-scroll">
                 <div class="cert-item">
-                    <h4>Apache Kafka Series - Learn Apache Kafka for Beginners v3</h4>
+                    <div class="cert-badge">📜</div>
+                    <h4>Apache Kafka Series — Learn Apache Kafka for Beginners v3</h4>
                     <p>Expert-level streaming data architecture</p>
                 </div>
                 <div class="cert-item">
+                    <div class="cert-badge">🐧</div>
                     <h4>Linux Administrator</h4>
                     <p>System administration & infrastructure management</p>
                 </div>
                 <div class="cert-item">
-                    <h4>DevOps Foundations - DevOps Institute Certification</h4>
+                    <div class="cert-badge">🔧</div>
+                    <h4>DevOps Foundations — DevOps Institute Certification</h4>
                     <p>DevOps practices and cultural transformation</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <span class="section-label animate-on-scroll">Insights</span>
+            <h2 class="section-title animate-on-scroll">Blog & Articles</h2>
+            <p class="section-subtitle animate-on-scroll">Thoughts on cloud architecture, DevOps practices, and infrastructure at scale</p>
+
+            <div class="blog-grid animate-on-scroll">
+                <div class="blog-card">
+                    <div class="blog-card-image">📝</div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">DevOps</span>
+                        <h3>Building Resilient CI/CD Pipelines at Scale</h3>
+                        <p>Lessons learned from designing deployment pipelines that handle thousands of deployments per week with near-zero downtime.</p>
+                        <div class="blog-card-meta">
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-image">☁️</div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">Cloud</span>
+                        <h3>Multi-Cloud Strategy: AWS vs Azure for Enterprise</h3>
+                        <p>A practical comparison guide for choosing the right cloud provider based on workload requirements and cost optimization.</p>
+                        <div class="blog-card-meta">
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-image">🤖</div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">MLOps</span>
+                        <h3>Infrastructure for AI: An MLOps Primer</h3>
+                        <p>How to design infrastructure that supports machine learning workflows from training to production deployment.</p>
+                        <div class="blog-card-meta">
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Activity Section -->
+    <section class="github section-alt" id="github">
+        <div class="container">
+            <span class="section-label animate-on-scroll">Open Source</span>
+            <h2 class="section-title animate-on-scroll">GitHub Activity</h2>
+
+            <div class="github-wrapper animate-on-scroll">
+                <div class="github-header">
+                    <div class="github-profile-info">
+                        <h3>Contribution Graph</h3>
+                        <p class="mb-0" style="color: var(--color-text-muted); font-size: 0.9rem;">Activity over the past year</p>
+                    </div>
+                    <div class="github-stats">
+                        <div class="github-stat">
+                            <div class="github-stat-value">—</div>
+                            <div class="github-stat-label">Repositories</div>
+                        </div>
+                        <div class="github-stat">
+                            <div class="github-stat-value">—</div>
+                            <div class="github-stat-label">Contributions</div>
+                        </div>
+                        <div class="github-stat">
+                            <div class="github-stat-value">—</div>
+                            <div class="github-stat-label">Stars</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="github-graph" id="github-graph"></div>
+
+                <div class="github-legend">
+                    <span>Less</span>
+                    <div class="github-legend-cell" style="background: var(--color-bg-section);"></div>
+                    <div class="github-legend-cell" style="background: #9be9a8;"></div>
+                    <div class="github-legend-cell" style="background: #40c463;"></div>
+                    <div class="github-legend-cell" style="background: #30a14e;"></div>
+                    <div class="github-legend-cell" style="background: #216e39;"></div>
+                    <span>More</span>
+                </div>
+
+                <p class="github-username">Connect your GitHub to see live activity — <a href="https://github.com/" target="_blank">View Profile →</a></p>
             </div>
         </div>
     </section>
@@ -367,45 +649,62 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="contact-content">
+            <span class="section-label animate-on-scroll">Get In Touch</span>
+            <h2 class="section-title animate-on-scroll">Let's Connect</h2>
+            <div class="contact-content animate-on-scroll">
                 <div class="contact-info">
-                    <h2>Let's Connect</h2>
-                    <p>Whether you're scaling infrastructure, implementing DevOps practices, or optimizing cloud costs—I'm here to help. Reach out directly or fill the form.</p>
+                    <p>Whether you're scaling infrastructure, implementing DevOps practices, or optimizing cloud costs — I'm here to help. Reach out directly or fill the form.</p>
                     <div class="contact-methods">
                         <div class="contact-method">
-                            <h4>Email</h4>
-                            <a href="mailto:jagadales41@gmail.com">jagadales41@gmail.com</a>
+                            <div class="contact-method-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:jagadales41@gmail.com">jagadales41@gmail.com</a>
+                            </div>
                         </div>
                         <div class="contact-method">
-                            <h4>Phone</h4>
-                            <a href="tel:8007713067">+91 8007713067</a>
+                            <div class="contact-method-icon">📱</div>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:8007713067">+91 8007713067</a>
+                            </div>
                         </div>
                         <div class="contact-method">
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/shubhamjagadale8007713067" target="_blank">Connect on LinkedIn</a>
+                            <div class="contact-method-icon">💼</div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/shubhamjagadale8007713067" target="_blank">Connect on LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">📍</div>
+                            <div>
+                                <h4>Location</h4>
+                                <span style="color: var(--color-text-secondary);">Pune, India</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
                     </div>
                     <div class="form-group">
                         <label for="company">Company</label>
-                        <input type="text" id="company" name="company">
+                        <input type="text" id="company" name="company" placeholder="Your company (optional)">
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject *</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or inquiry..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                     <p class="form-note" id="formNote"></p>
@@ -417,10 +716,40 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Shubham Jagadale. All rights reserved.</p>
-            <p>Designed for performance and clarity.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <span class="logo-icon">&lt;/&gt;</span>
+                        <span class="logo-text" style="color: white;">SJ</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">Cloud Architect & DevOps Leader building resilient infrastructure at scale.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="mailto:jagadales41@gmail.com" class="social-link" aria-label="Email">📧</a>
+                        <a href="https://www.linkedin.com/in/shubhamjagadale8007713067" target="_blank" class="social-link" aria-label="LinkedIn">💼</a>
+                        <a href="https://github.com/" target="_blank" class="social-link" aria-label="GitHub">💻</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shubham Jagadale. All rights reserved.</p>
+                <p>Designed for performance, accessibility, and clarity.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
 
     <script src="script.js"></script>
 </body>

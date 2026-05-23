@@ -1,174 +1,368 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+// ============================================================================
+// Personal Branding Portfolio - Main Script
+// Clean, modern ES6+ JavaScript — zero external dependencies
+// ============================================================================
 
-// Contact Form Handling
-const contactForm = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
+document.addEventListener('DOMContentLoaded', () => {
+  // ──────────────────────────────────────────────────────────────────────────
+  // 1. Mobile Hamburger Menu
+  // ──────────────────────────────────────────────────────────────────────────
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            company: document.getElementById('company').value.trim(),
-            subject: document.getElementById('subject').value.trim(),
-            message: document.getElementById('message').value.trim()
-        };
+  const closeMenu = () => {
+    hamburger?.classList.remove('active');
+    navLinks?.classList.remove('active');
+  };
 
-        // Validation
-        if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-            showFormMessage('Please fill in all required fields.', 'error');
-            return;
-        }
+  hamburger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hamburger.classList.toggle('active');
+    navLinks?.classList.toggle('active');
+  });
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            showFormMessage('Please enter a valid email address.', 'error');
-            return;
-        }
+  // Close menu when a nav link is clicked
+  navLinks?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
 
-        // Simulate form submission (in production, this would send to a backend)
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-
-        // Simulate API call
-        setTimeout(() => {
-            // Reset form
-            contactForm.reset();
-            submitButton.disabled = false;
-            submitButton.textContent = originalText;
-            
-            showFormMessage('Thank you! Your message has been sent. I\'ll get back to you soon.', 'success');
-            
-            // Clear success message after 5 seconds
-            setTimeout(() => {
-                formNote.textContent = '';
-                formNote.className = '';
-            }, 5000);
-        }, 1000);
-    });
-}
-
-function showFormMessage(message, type) {
-    formNote.textContent = message;
-    formNote.className = type;
-}
-
-// Add scroll spy for navigation (optional enhancement)
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-function updateActiveLink() {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', updateActiveLink);
-
-// Add active link styling
-const style = document.createElement('style');
-style.textContent = `
-    .nav-links a.active {
-        color: var(--accent) !important;
-        font-weight: 700;
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (
+      navLinks?.classList.contains('active') &&
+      !navLinks.contains(e.target) &&
+      !hamburger?.contains(e.target)
+    ) {
+      closeMenu();
     }
-`;
-document.head.appendChild(style);
+  });
 
-// Performance: Lazy loading for images (if any are added)
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
+  // ──────────────────────────────────────────────────────────────────────────
+  // 2. Smooth Scrolling
+  // ──────────────────────────────────────────────────────────────────────────
+  const NAVBAR_OFFSET = 80;
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+      const top =
+        target.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
+
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 3. Scroll Spy (Active Navigation)
+  // ──────────────────────────────────────────────────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const SCROLL_SPY_OFFSET = 200;
+
+  const updateScrollSpy = () => {
+    const scrollPos = window.scrollY + SCROLL_SPY_OFFSET;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        navAnchors.forEach((a) => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === `#${sectionId}`) {
+            a.classList.add('active');
+          }
         });
+      }
     });
+  };
 
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
+  // ──────────────────────────────────────────────────────────────────────────
+  // 4. Navbar Background on Scroll
+  // ──────────────────────────────────────────────────────────────────────────
+  const navbar = document.querySelector('.navbar');
 
-// Add CSS for active link animation
-const activeStyle = document.createElement('style');
-activeStyle.textContent = `
-    .nav-links a.active::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: var(--accent);
-        margin-top: 0.5rem;
+  // Inject the behaviour-driven scrolled rule (CSS handles all other styling)
+  const scrolledStyle = document.createElement('style');
+  scrolledStyle.textContent =
+    '.navbar.scrolled { box-shadow: var(--shadow-md); }';
+  document.head.appendChild(scrolledStyle);
+
+  const updateNavbar = () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
     }
-`;
-document.head.appendChild(activeStyle);
+  };
 
-// Keyboard navigation enhancement
-document.addEventListener('keydown', function(e) {
-    // Escape key to close any modals (if added later)
+  // ──────────────────────────────────────────────────────────────────────────
+  // 9. Scroll to Top Button
+  // ──────────────────────────────────────────────────────────────────────────
+  const scrollTopBtn = document.querySelector('.scroll-top');
+
+  const updateScrollTopBtn = () => {
+    if (window.scrollY > 500) {
+      scrollTopBtn?.classList.add('visible');
+    } else {
+      scrollTopBtn?.classList.remove('visible');
+    }
+  };
+
+  scrollTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── Unified scroll handler (debounced via rAF) ───────────────────────────
+  let scrollTicking = false;
+
+  const onScroll = () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        updateScrollSpy();
+        updateNavbar();
+        updateScrollTopBtn();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Fire once on load so initial state is correct
+  updateScrollSpy();
+  updateNavbar();
+  updateScrollTopBtn();
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 5. Scroll-Triggered Animations (IntersectionObserver)
+  // ──────────────────────────────────────────────────────────────────────────
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+  if (animateElements.length) {
+    const animateObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    animateElements.forEach((el) => animateObserver.observe(el));
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 6. Skill Bars Animation
+  // ──────────────────────────────────────────────────────────────────────────
+  const skillBars = document.querySelectorAll('.skill-bar-fill');
+
+  if (skillBars.length) {
+    const skillObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const width = el.getAttribute('data-width');
+            el.classList.add('animated');
+            el.style.width = width + '%';
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    skillBars.forEach((bar) => skillObserver.observe(bar));
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 7. GitHub Contribution Graph Generator
+  // ──────────────────────────────────────────────────────────────────────────
+  const githubGraph = document.querySelector('#github-graph');
+
+  if (githubGraph) {
+    const WEEKS = 52;
+    const DAYS = 7;
+    const TOTAL_CELLS = WEEKS * DAYS;
+
+    // Simple seeded pseudo-random number generator (mulberry32)
+    const seededRandom = (seed) => {
+      let t = (seed + 0x6d2b79f5) | 0;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+
+    // Set grid layout to 7 rows
+    githubGraph.style.gridTemplateRows = 'repeat(7, 1fr)';
+
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < TOTAL_CELLS; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'github-cell';
+
+      const rand = seededRandom(i * 2654435761); // consistent hash per cell
+
+      // ~60% empty, 20% level-1, 10% level-2, 7% level-3, 3% level-4
+      if (rand < 0.6) {
+        // empty — no level class
+      } else if (rand < 0.8) {
+        cell.classList.add('level-1');
+      } else if (rand < 0.9) {
+        cell.classList.add('level-2');
+      } else if (rand < 0.97) {
+        cell.classList.add('level-3');
+      } else {
+        cell.classList.add('level-4');
+      }
+
+      fragment.appendChild(cell);
+    }
+
+    githubGraph.appendChild(fragment);
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 8. Contact Form Handling
+  // ──────────────────────────────────────────────────────────────────────────
+  const contactForm = document.querySelector('#contactForm');
+  const formNote = document.querySelector('#formNote');
+
+  const showFormMessage = (message, type) => {
+    if (!formNote) return;
+    formNote.textContent = message;
+    formNote.className = type; // 'error' or 'success'
+  };
+
+  const clearFormNote = () => {
+    if (!formNote) return;
+    formNote.textContent = '';
+    formNote.className = '';
+  };
+
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const name = formData.get('name')?.trim() ?? '';
+    const email = formData.get('email')?.trim() ?? '';
+    const company = formData.get('company')?.trim() ?? '';
+    const subject = formData.get('subject')?.trim() ?? '';
+    const message = formData.get('message')?.trim() ?? '';
+
+    // Validate required fields
+    if (!name || !email || !subject || !message) {
+      showFormMessage('Please fill in all required fields.', 'error');
+      return;
+    }
+
+    // Validate email
+    if (!EMAIL_REGEX.test(email)) {
+      showFormMessage('Please enter a valid email address.', 'error');
+      return;
+    }
+
+    // Simulate sending
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+
+    setTimeout(() => {
+      contactForm.reset();
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+
+      showFormMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+
+      // Clear success message after 5 seconds
+      setTimeout(clearFormNote, 5000);
+    }, 1500);
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 10. Counter Animation for Stats
+  // ──────────────────────────────────────────────────────────────────────────
+  const statNumbers = document.querySelectorAll('.stat-number');
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const suffix = el.getAttribute('data-suffix') === '+' ? '+' : '';
+    const duration = 2000; // ~2 seconds
+    const startTime = performance.now();
+
+    const step = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Ease-out cubic for a natural feel
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+
+      el.textContent = current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  if (statNumbers.length) {
+    const statObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    statNumbers.forEach((el) => statObserver.observe(el));
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 11. Keyboard Navigation
+  // ──────────────────────────────────────────────────────────────────────────
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        formNote.textContent = '';
-        formNote.className = '';
+      closeMenu();
+      clearFormNote();
     }
+  });
 });
 
-// Announce page load completion for accessibility
-window.addEventListener('load', function() {
-    console.log('Portfolio loaded successfully');
-});
-
-// Simple dark mode toggle (optional feature)
-function initDarkModeToggle() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDark && !localStorage.getItem('theme')) {
-        // Optional: Add dark mode support
-        // For this minimalist design, we'll keep light mode as default
+// ============================================================================
+// 12. Performance Monitoring (Modern API)
+// ============================================================================
+window.addEventListener('load', () => {
+  if (performance.getEntriesByType) {
+    const [navigation] = performance.getEntriesByType('navigation');
+    if (navigation) {
+      console.log(`Page load: ${Math.round(navigation.loadEventEnd)}ms`);
     }
-}
-
-initDarkModeToggle();
-
-// Performance monitoring
-if (window.performance && window.performance.timing) {
-    window.addEventListener('load', function() {
-        const perfTiming = window.performance.timing;
-        const pageLoadTime = perfTiming.loadEventEnd - perfTiming.navigationStart;
-        console.log('Page load time: ' + pageLoadTime + 'ms');
-    });
-}
+  }
+});
